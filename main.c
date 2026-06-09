@@ -177,7 +177,7 @@ void removerCliente(FILE *arquivo) {
 
     while (fread(&cliente, sizeof(Cliente), 1, arquivo) == 1) {
         if (cliente.ativo == 1 && cliente.numeroConta == conta) {
-            cliente.ativo = 0; // Remoção lógica
+            cliente.ativo = 0;
 
             fseek(arquivo, -sizeof(Cliente), SEEK_CUR);
             fwrite(&cliente, sizeof(Cliente), 1, arquivo);
